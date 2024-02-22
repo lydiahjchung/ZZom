@@ -10,9 +10,7 @@ import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-class UsersService {
-    lateinit var usersRepository: UsersRepository
-
+class UsersService(private val usersRepository: UsersRepository) {
     @Transactional
     fun save(requestDto: UsersSignRequestDto): UsersResponseDto {
         var newUser: Users = usersRepository.save(requestDto.toEntity())

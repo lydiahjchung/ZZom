@@ -21,7 +21,7 @@ class HabitsRepositoryTest() {
         val habit: String = "drink water"
         val day: Day = Day.MON
         val alertTime: String = "19:30"
-        val userId: String = "lydia"
+        val userId: Long = 290L
 
         habitsRepository.save(Habits(
             habit = habit,

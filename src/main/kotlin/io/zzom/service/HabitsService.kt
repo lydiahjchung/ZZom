@@ -9,9 +9,7 @@ import org.springframework.transaction.annotation.Transactional
 import java.util.*
 
 @Service
-class HabitsService {
-    lateinit var habitsRepository: HabitsRepository
-
+class HabitsService(private val habitsRepository: HabitsRepository) {
     @Transactional
     fun save(requestDto: HabitsAddRequestDto): HabitsResponseDto {
         var newHabit: Habits = habitsRepository.save(requestDto.toEntity())

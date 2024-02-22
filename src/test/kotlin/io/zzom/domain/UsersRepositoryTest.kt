@@ -16,10 +16,10 @@ class UsersRepositoryTest {
     @Test
     fun load_saved() {
         //given
-        val userId: String="lydia"
+        val userName: String="lydia"
 
         usersRepository.save(Users(
-            userId = userId
+            userName = userName
         ))
 
         //when
@@ -28,6 +28,6 @@ class UsersRepositoryTest {
         //then
         val users: Users = usersList.get(0)
 
-        assertEquals(userId, users.userId)
+        assertEquals(userName, users.userName)
     }
 }

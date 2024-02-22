@@ -5,7 +5,7 @@ import io.zzom.web.domain.Habits
 import kotlin.properties.Delegates
 
 class HabitsAddRequestDto(
-    var userId: String,
+    var userId: Long,
     var habit: String,
     var day: Day,
     var alertTime: String

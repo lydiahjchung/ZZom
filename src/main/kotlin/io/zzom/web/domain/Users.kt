@@ -5,9 +5,9 @@ import jakarta.persistence.*
 @Entity
 @Table(name = "users")
 class Users(
-    @Column(nullable = false) var userId: String
+    @Column(nullable = false) var userName: String
 ) {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long?=null
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Long = 0
 }
