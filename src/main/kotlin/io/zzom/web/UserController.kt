@@ -1,7 +1,6 @@
 package io.zzom.web
 
 import io.zzom.service.UsersService
-import io.zzom.web.dto.UsersAddRequestDto
 import io.zzom.web.dto.UsersResponseDto
 import io.zzom.web.dto.UsersSignRequestDto
 import org.springframework.web.bind.annotation.PostMapping
