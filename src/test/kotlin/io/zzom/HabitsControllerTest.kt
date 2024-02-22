@@ -27,7 +27,7 @@ class HabitsControllerTest {
         val habit: String = "drink water"
         val day: Day = Day.MON
         val alertTime = "19:30"
-        val userId = 290L
+        val userId = "lydia"
 
         var requestDto: HabitsAddRequestDto = HabitsAddRequestDto(
             habit = habit,
