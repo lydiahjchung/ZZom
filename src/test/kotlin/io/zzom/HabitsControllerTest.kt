@@ -1,8 +1,8 @@
 package io.zzom
 
 import io.zzom.web.domain.Day
-import io.zzom.web.domain.HabitsRepository
-import io.zzom.web.dto.HabitsAddRequestDto
+import io.zzom.repository.HabitsRepository
+import io.zzom.controller.dto.AddHabitsRequest
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -29,7 +29,7 @@ class HabitsControllerTest {
         val alertTime = "19:30"
         val userId = 290L
 
-        var requestDto: HabitsAddRequestDto = HabitsAddRequestDto(
+        var requestDto: AddHabitsRequest = AddHabitsRequest(
             habit = habit,
             day = day,
             alertTime = alertTime,

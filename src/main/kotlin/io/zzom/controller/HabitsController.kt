@@ -1,19 +1,18 @@
-package io.zzom.web
+package io.zzom.controller
 
 import io.zzom.service.HabitsService
-import io.zzom.web.domain.Habits
-import io.zzom.web.dto.HabitsAddRequestDto
-import io.zzom.web.dto.HabitsResponseDto
+import io.zzom.controller.dto.AddHabitsRequest
+import io.zzom.entity.Habits
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping
+@RequestMapping("/habit")
 class HabitsController(private val habitsService: HabitsService) {
-    @PostMapping("/habit")
-    fun add(@RequestBody requestDto: HabitsAddRequestDto): HabitsResponseDto {
-        return habitsService.save(requestDto)
+    @PostMapping
+    fun add(@RequestBody requestDto: AddHabitsRequest): Habits {
+        return this.habitsService.addHabits(Habits.toEntity(requestDto))
     }
 }

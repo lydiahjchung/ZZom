@@ -1,8 +1,8 @@
-package io.zzom.web.dto
+package io.zzom.controller.dto
 
-import io.zzom.web.domain.Users
+import io.zzom.entity.Users
 
-class UsersSignRequestDto(
+data class SignUpRequest(
     var userName: String
 ) {
     fun toEntity(): Users {

@@ -1,9 +1,8 @@
 package io.zzom.domain
 
 import io.zzom.web.domain.Day
-import io.zzom.web.domain.Habits
-import io.zzom.web.domain.HabitsRepository
-import org.assertj.core.api.Assertions.assertThat
+import io.zzom.entity.Habits
+import io.zzom.repository.HabitsRepository
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -23,12 +22,14 @@ class HabitsRepositoryTest() {
         val alertTime: String = "19:30"
         val userId: Long = 290L
 
-        habitsRepository.save(Habits(
+        habitsRepository.save(
+            Habits(
             habit = habit,
             day = day,
             alertTime = alertTime,
             userId = userId
-        ))
+        )
+        )
 
         //when
         val habitsList: List<Habits> = habitsRepository.findAll()
