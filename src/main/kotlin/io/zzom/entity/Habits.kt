@@ -6,7 +6,7 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name = "habits")
-class Habits(userId: Long, habit: String, day: Day, alertTime: String) {
+class Habits(userId: Long, habit: String) {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long = 0
@@ -17,15 +17,15 @@ class Habits(userId: Long, habit: String, day: Day, alertTime: String) {
     @Column(nullable = false)
     var habit: String = habit
 
-    @Column(nullable = true)
-    var day: Day ?= day
-
-    @Column(nullable = true)
-    var alertTime: String ?= alertTime
+//    @Column(nullable = true)
+//    var day: Day ?= day
+//
+//    @Column(nullable = true)
+//    var alertTime: String ?= alertTime
 
     companion object{
         fun toEntity(request: AddHabitsRequest): Habits {
-            return Habits(request.userId, request.habit, request.day, request.alertTime)
+            return Habits(request.userId, request.habit)
         }
     }
 }

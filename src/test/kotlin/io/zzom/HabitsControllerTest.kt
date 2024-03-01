@@ -40,4 +40,12 @@ class HabitsControllerTest {
         //then
     }
 
+    @Test
+    fun findByUserId(): Unit {
+        //given
+        val userId: Long = 2;
+
+
+    }
+
 }

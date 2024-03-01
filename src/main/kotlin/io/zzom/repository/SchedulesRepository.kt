@@ -1,4 +1,7 @@
 package io.zzom.repository
 
-class SchedulesRepository {
+import io.zzom.entity.Schedules
+import org.springframework.data.jpa.repository.JpaRepository
+
+interface SchedulesRepository: JpaRepository<Schedules, Long> {
 }

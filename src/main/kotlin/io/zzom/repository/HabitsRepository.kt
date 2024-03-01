@@ -4,4 +4,5 @@ import io.zzom.entity.Habits
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface HabitsRepository: JpaRepository<Habits, Long> {
+    fun findByUserId(userId: Long): List<Habits>
 }

@@ -9,11 +9,12 @@ import org.springframework.transaction.annotation.Transactional
 @Service
 class HabitsService(private val habitsRepository: HabitsRepository) {
     @Transactional
-    fun addHabits(habit: Habits): Habits {
+    fun addHabit(habit: Habits): Habits {
         return this.habitsRepository.save(habit)
     }
 
-//    fun findById(id: Long): HabitsResponseDto {
-//
-//    }
+    @Transactional(readOnly = true)
+    fun getHabit(habitId: Long): Habits{
+        return this.habitsRepository.findById(habitId).orElseThrow()
+    }
 }
