@@ -1,12 +1,14 @@
 package io.zzom.entity
 
-import io.zzom.controller.dto.AddHabitsRequest
-import io.zzom.web.domain.Day
+import com.fasterxml.jackson.annotation.JsonFormat
 import jakarta.persistence.*
+import org.springframework.format.annotation.DateTimeFormat
+import java.time.DayOfWeek
+import java.time.LocalTime
 
 @Entity
 @Table(name = "schedules")
-class Schedules(habitId: Long, day: Day, alertTime: String) {
+class Schedules(habitId: Long, day: DayOfWeek, alertTime: LocalTime) {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long = 0
@@ -15,14 +17,15 @@ class Schedules(habitId: Long, day: Day, alertTime: String) {
     var habitId: Long = habitId
 
     @Column(nullable = true)
-    var day: Day = day
+    var day: DayOfWeek = day
 
     @Column(nullable = true)
-    var alertTime: String = alertTime
+    @DateTimeFormat(pattern = "HH:mm")
+    var alertTime: LocalTime = alertTime
 
     companion object {
-        fun toEntity(id: Long, request: AddHabitsRequest): Schedules {
-            return Schedules(id, request.day, request.alertTime)
+        fun of(habitId: Long, day: DayOfWeek, alertTime: LocalTime): Schedules {
+            return Schedules(habitId, day, alertTime)
         }
     }
 }

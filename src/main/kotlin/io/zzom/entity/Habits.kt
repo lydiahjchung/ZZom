@@ -1,7 +1,6 @@
 package io.zzom.entity
 
 import io.zzom.controller.dto.AddHabitsRequest
-import io.zzom.web.domain.Day
 import jakarta.persistence.*
 
 @Entity
@@ -17,15 +16,9 @@ class Habits(userId: Long, habit: String) {
     @Column(nullable = false)
     var habit: String = habit
 
-//    @Column(nullable = true)
-//    var day: Day ?= day
-//
-//    @Column(nullable = true)
-//    var alertTime: String ?= alertTime
-
     companion object{
-        fun toEntity(request: AddHabitsRequest): Habits {
-            return Habits(request.userId, request.habit)
+        fun of(userId: Long, habit: String): Habits {
+            return Habits(userId, habit)
         }
     }
 }

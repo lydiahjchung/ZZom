@@ -2,23 +2,19 @@ package io.zzom.controller
 
 import io.zzom.service.HabitsService
 import io.zzom.controller.dto.AddHabitsRequest
-import io.zzom.entity.Habits
-import io.zzom.entity.Schedules
-import io.zzom.service.SchedulesService
+import io.zzom.controller.dto.HabitsResponse
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/habit")
-class HabitsController(private val habitsService: HabitsService, private val schedulesService: SchedulesService) {
+class HabitsController(private val habitsService: HabitsService) {
     @PostMapping
-    fun addHabit(@RequestBody requestDto: AddHabitsRequest): Habits {
-        val newHabit: Habits = this.habitsService.addHabit(Habits.toEntity(requestDto))
-        this.schedulesService.addSchedule(Schedules.toEntity(newHabit.id, requestDto))
-        return newHabit
+    fun addHabit(@RequestBody request: AddHabitsRequest): HabitsResponse {
+        return this.habitsService.addHabit(request)
     }
 
     @GetMapping("/{habitId}")
-    fun getHabit(@PathVariable("habitId") habitId: Long): Habits {
-        return this.habitsService.getHabit(habitId)
+    fun getHabit(@PathVariable("habitId") habitId: Long): HabitsResponse {
+        return this.habitsService.getHabitById(habitId)
     }
 }

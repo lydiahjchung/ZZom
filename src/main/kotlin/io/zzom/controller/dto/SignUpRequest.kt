@@ -1,4 +1,6 @@
 package io.zzom.controller.dto
 
-class SignUpRequest {
+data class SignUpRequest(
+    val userName: String
+) {
 }

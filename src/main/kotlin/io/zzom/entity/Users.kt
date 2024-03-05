@@ -1,6 +1,5 @@
 package io.zzom.entity
 
-import io.zzom.controller.dto.SignUpRequest
 import jakarta.persistence.*
 
 @Entity
@@ -14,8 +13,8 @@ class Users(userName: String) {
     var userName: String = userName
 
     companion object{
-        fun toEntity(request: SignUpRequest): Users {
-            return Users(request.userName)
+        fun of(userName: String): Users {
+            return Users(userName)
         }
     }
 }
